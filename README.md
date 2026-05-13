@@ -1,43 +1,44 @@
 # hcc-ui-agent-dev
 
-Custom bot runner instance built on top of [dev-bot](https://github.com/RedHatInsights/platform-frontend-ai-dev).
+Custom bot runner instance built on [dev-bot](https://github.com/RedHatInsights/platform-frontend-ai-dev).
 
 ## Architecture
 
-This repo uses dev-bot as a git submodule. The Dockerfile layers instance-specific customization on top of the dev-bot base image.
+Uses dev-bot as a git submodule. The submodule ships `Dockerfile.runner` which builds the full bot image and runs instance-specific customization hooks from this repo.
 
 ```
 hcc-ui-agent-dev/
-├── Dockerfile      # FROM dev-bot:local + instance customization
-├── build.sh        # Two-step build (dev-bot base → runner)
-├── dev-bot/        # Git submodule → platform-frontend-ai-dev
+├── dev-bot/        # Git submodule (don't modify)
+├── setup.sh        # Custom build steps (dnf install, pip install, etc.)
+├── instance/       # Extra files COPYed into the image
 └── README.md
 ```
 
-## Quick Start
+No Dockerfile in this repo — Konflux points at `dev-bot/Dockerfile.runner`.
+
+## Build
 
 ```bash
-./build.sh
+git submodule update --init --recursive
+docker build -f dev-bot/Dockerfile.runner -t hcc-ui-agent-dev:local .
 ```
-
-This will:
-1. Init/update the dev-bot submodule
-2. Build the dev-bot base image
-3. Build the runner image with instance customization
 
 ## Customization
 
-Add instance-specific files and uncomment the COPY lines in the Dockerfile:
-- `config.json` — bot configuration overrides
-- `personas/` — custom persona prompts
-- `.claude/skills/` — custom skills
+- **setup.sh** — runs as root during build. Install packages, write config, etc.
+- **instance/** — files COPYed to `/home/botuser/app/instance/` in the image.
 
 ## Updating dev-bot
 
 ```bash
-cd dev-bot
-git pull origin master
-cd ..
+cd dev-bot && git pull origin master && cd ..
 git add dev-bot
 git commit -m "chore: update dev-bot submodule"
+```
+
+## Konflux
+
+```yaml
+dockerfile: dev-bot/Dockerfile.runner
+path-context: .
 ```
