@@ -1,0 +1,3 @@
+[submodule "dev-bot"]
+	path = dev-bot
+	url = https://github.com/RedHatInsights/platform-frontend-ai-dev.git
