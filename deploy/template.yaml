@@ -21,6 +21,8 @@ parameters:
   value: ""
 - name: BOT_CONFIG_REPO
   value: ""
+- name: BOT_NAME
+  value: devbot-ui
 - name: BOT_CONFIG_PATH
   value: ""
 - name: GCP_PROJECT_ID
@@ -37,7 +39,7 @@ objects:
 # Shared infrastructure (proxy, memory-server, secrets) is deployed by
 # the platform-frontend-ai-dev template in the same namespace.
 # This template creates only:
-#   1. Bot Deployment (devbot-bot-2)
+#   1. Bot Deployment (name controlled by BOT_NAME parameter)
 #   2. NetworkPolicy (egress restricted to proxy + memory-server + DNS)
 #
 # Prerequisites (deployed by platform-frontend-ai-dev):
@@ -50,19 +52,21 @@ objects:
 - apiVersion: apps/v1
   kind: Deployment
   metadata:
-    name: devbot-bot-2
+    name: ${BOT_NAME}
     labels:
-      app.kubernetes.io/name: bot-2
+      app.kubernetes.io/name: ${BOT_NAME}
+      app.kubernetes.io/component: bot
       app.kubernetes.io/part-of: devbot
   spec:
     replicas: ${{BOT_REPLICAS}}
     selector:
       matchLabels:
-        app.kubernetes.io/name: bot-2
+        app.kubernetes.io/name: ${BOT_NAME}
     template:
       metadata:
         labels:
-          app.kubernetes.io/name: bot-2
+          app.kubernetes.io/name: ${BOT_NAME}
+          app.kubernetes.io/component: bot
           app.kubernetes.io/part-of: devbot
       spec:
         containers:
@@ -174,17 +178,17 @@ objects:
               memory: 4Gi
               ephemeral-storage: 8Gi
 
-# --- NetworkPolicy: Bot-2 can only reach proxy + memory-server ---
+# --- NetworkPolicy: Bot can only reach proxy + memory-server ---
 - apiVersion: networking.k8s.io/v1
   kind: NetworkPolicy
   metadata:
-    name: devbot-bot-2-egress
+    name: ${BOT_NAME}-egress
     labels:
       app.kubernetes.io/part-of: devbot
   spec:
     podSelector:
       matchLabels:
-        app.kubernetes.io/name: bot-2
+        app.kubernetes.io/name: ${BOT_NAME}
     policyTypes:
     - Egress
     egress:
@@ -211,12 +215,11 @@ objects:
       - port: 8080
         protocol: TCP
     - to:
-      - namespaceSelector: {}
-        podSelector:
+      - namespaceSelector:
           matchLabels:
-            k8s-app: kube-dns
+            kubernetes.io/metadata.name: openshift-dns
       ports:
-      - port: 53
+      - port: 5353
         protocol: UDP
-      - port: 53
+      - port: 5353
         protocol: TCP
