@@ -83,5 +83,9 @@
   "api-frontend": {
     "url": "https://github.com/platex-rehor-bot/api-frontend.git",
     "upstream": "https://github.com/RedHatInsights/api-frontend.git"
+  },
+  "sources-ui": {
+    "url": "https://github.com/platex-rehor-bot/sources-ui.git",
+    "upstream": "https://github.com/RedHatInsights/sources-ui.git"
   }
 }
