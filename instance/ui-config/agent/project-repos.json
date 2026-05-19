@@ -1,0 +1,87 @@
+{
+  "insights-chrome": {
+    "url": "https://github.com/platex-rehor-bot/insights-chrome.git",
+    "upstream": "https://github.com/RedHatInsights/insights-chrome.git"
+  },
+  "astro-virtual-assistant-frontend": {
+    "url": "https://github.com/platex-rehor-bot/astro-virtual-assistant-frontend.git",
+    "upstream": "https://github.com/RedHatInsights/astro-virtual-assistant-frontend.git"
+  },
+  "widget-layout": {
+    "url": "https://github.com/platex-rehor-bot/widget-layout.git",
+    "upstream": "https://github.com/RedHatInsights/widget-layout.git"
+  },
+  "notifications-frontend": {
+    "url": "https://github.com/platex-rehor-bot/notifications-frontend.git",
+    "upstream": "https://github.com/RedHatInsights/notifications-frontend.git"
+  },
+  "app-interface": {
+    "url": "https://gitlab.cee.redhat.com/platform-experience-services-bot/app-interface.git",
+    "upstream": "https://gitlab.cee.redhat.com/service/app-interface.git",
+    "host": "gitlab"
+  },
+  "learning-resources": {
+    "url": "https://github.com/platex-rehor-bot/learning-resources.git",
+    "upstream": "https://github.com/RedHatInsights/learning-resources.git"
+  },
+  "payload-tracker-frontend": {
+    "url": "https://github.com/platex-rehor-bot/payload-tracker-frontend.git",
+    "upstream": "https://github.com/RedHatInsights/payload-tracker-frontend.git"
+  },
+  "javascript-clients": {
+    "url": "https://github.com/platex-rehor-bot/javascript-clients.git",
+    "upstream": "https://github.com/RedHatInsights/javascript-clients.git"
+  },
+  "frontend-components": {
+    "url": "https://github.com/platex-rehor-bot/frontend-components.git",
+    "upstream": "https://github.com/RedHatInsights/frontend-components.git"
+  },
+  "insights-frontend-builder-common": {
+    "url": "https://github.com/platex-rehor-bot/insights-frontend-builder-common.git",
+    "upstream": "https://github.com/RedHatInsights/insights-frontend-builder-common.git"
+  },
+  "insights-rbac-ui": {
+    "url": "https://github.com/platex-rehor-bot/insights-rbac-ui.git",
+    "upstream": "https://github.com/RedHatInsights/insights-rbac-ui.git"
+  },
+  "user-preferences-frontend": {
+    "url": "https://github.com/platex-rehor-bot/user-preferences-frontend.git",
+    "upstream": "https://github.com/RedHatInsights/user-preferences-frontend.git"
+  },
+  "api-documentation-frontend": {
+    "url": "https://github.com/platex-rehor-bot/api-documentation-frontend.git",
+    "upstream": "https://github.com/RedHatInsights/api-documentation-frontend.git"
+  },
+  "service-accounts": {
+    "url": "https://github.com/platex-rehor-bot/service-accounts.git",
+    "upstream": "https://github.com/RedHatInsights/service-accounts.git"
+  },
+  "scheduler-ui": {
+    "url": "https://github.com/platex-rehor-bot/scheduler-ui.git",
+    "upstream": "https://github.com/RedHatInsights/scheduler-ui.git"
+  },
+  "frontend-assets": {
+    "url": "https://github.com/platex-rehor-bot/frontend-assets.git",
+    "upstream": "https://github.com/RedHatInsights/frontend-assets.git"
+  },
+  "frontend-test-utils": {
+    "url": "https://github.com/platex-rehor-bot/frontend-test-utils.git",
+    "upstream": "https://github.com/RedHatInsights/frontend-test-utils.git"
+  },
+  "javascript-clients-tests": {
+    "url": "https://github.com/platex-rehor-bot/javascript-clients-tests.git",
+    "upstream": "https://github.com/RedHatInsights/javascript-clients-tests.git"
+  },
+  "shared-workflows": {
+    "url": "https://github.com/platex-rehor-bot/shared-workflows.git",
+    "upstream": "https://github.com/RedHatInsights/shared-workflows.git"
+  },
+  "frontend-starter-app": {
+    "url": "https://github.com/platex-rehor-bot/frontend-starter-app.git",
+    "upstream": "https://github.com/RedHatInsights/frontend-starter-app.git"
+  },
+  "api-frontend": {
+    "url": "https://github.com/platex-rehor-bot/api-frontend.git",
+    "upstream": "https://github.com/RedHatInsights/api-frontend.git"
+  }
+}
