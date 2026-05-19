@@ -15,6 +15,8 @@ parameters:
   value: "0"
 - name: BOT_BOARD_NAME
   value: ""
+- name: BOT_SPRINT_PREFIX
+  value: ""
 - name: BOT_INCLUDE_BACKLOG
   value: "false"
 - name: BOT_INSTANCE_ID
@@ -31,6 +33,8 @@ parameters:
   required: true
 - name: VERTEX_ALLOWED_MODELS
   required: true
+- name: SLACK_WEBHOOK_URL
+  value: ""
 objects:
 
 # ============================================================================
@@ -130,6 +134,8 @@ objects:
           # Bot config
           - name: BOT_BOARD_NAME
             value: ${BOT_BOARD_NAME}
+          - name: BOT_SPRINT_PREFIX
+            value: ${BOT_SPRINT_PREFIX}
           - name: BOT_INCLUDE_BACKLOG
             value: ${BOT_INCLUDE_BACKLOG}
           - name: BOT_INSTANCE_ID
@@ -142,6 +148,9 @@ objects:
             value: http://devbot-memory-server:8080/api/bot-status
           - name: COSTS_API_URL
             value: http://devbot-memory-server:8080/api/costs
+          # Slack notifications
+          - name: SLACK_WEBHOOK_URL
+            value: ${SLACK_WEBHOOK_URL}
           # Proxy — shared pod deployed by platform-frontend-ai-dev
           - name: PROXY_HOST
             value: devbot-proxy
