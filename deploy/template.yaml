@@ -238,3 +238,26 @@ objects:
         protocol: UDP
       - port: 5353
         protocol: TCP
+
+# --- Cron Scaler: active 9am Prague time (Mon-Fri), shuts down 5pm ET (summer) / 6pm ET (winter) ---
+- apiVersion: keda.sh/v1alpha1
+  kind: ScaledObject
+  metadata:
+    name: ${BOT_NAME}-cron-scaler
+    labels:
+      app.kubernetes.io/name: ${BOT_NAME}
+      app.kubernetes.io/part-of: devbot
+  spec:
+    scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: ${BOT_NAME}
+    minReplicaCount: 0
+    maxReplicaCount: 1
+    triggers:
+    - type: cron
+      metadata:
+        timezone: "Europe/Prague"
+        start: "0 9 * * 1-5"
+        end: "0 23 * * 1-5"
+        desiredReplicas: "1"
