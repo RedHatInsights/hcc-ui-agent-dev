@@ -210,7 +210,7 @@ objects:
     - to:
       - podSelector:
           matchLabels:
-            app.kubernetes.io/name: proxy
+            app.kubernetes.io/name: devbot-proxy
       ports:
       - port: 3128
         protocol: TCP
