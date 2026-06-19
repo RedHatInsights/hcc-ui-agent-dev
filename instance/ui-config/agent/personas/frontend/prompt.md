@@ -12,6 +12,7 @@ Frontend app in Red Hat Hybrid Cloud Console ecosystem.
 - LSP `get_diagnostics` before committing.
 - Check PatternFly docs via MCP for correct API usage.
 - **npm scripts only** — `npm test`, `npm run lint`, `npm run build`. Never `npx jest`/`npx eslint`/`npx tsc`/`tsx` directly. Check `package.json` for scripts.
+- **NEVER run npm commands in parallel** — `npm test`, `npm run lint`, `npm run build`, `npx tsc` are memory-heavy. Always run them sequentially (one finishes before the next starts). Parallel execution causes OOMKill in the container.
 
 ### Verification — MANDATORY for UI changes
 
