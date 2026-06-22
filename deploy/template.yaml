@@ -104,6 +104,9 @@ objects:
           # Executor — thin client connects to proxy over TCP
           - name: EXECUTOR_ADDR
             value: devbot-proxy:9090
+          # Disable husky git hooks — bot runs tests explicitly before push
+          - name: HUSKY
+            value: "0"
           # Git identity — per-platform (from shared Vault secret)
           - name: GH_USER_NAME
             valueFrom:
@@ -186,11 +189,11 @@ objects:
           resources:
             requests:
               cpu: "1"
-              memory: 2Gi
+              memory: 3Gi
               ephemeral-storage: 4Gi
             limits:
               cpu: "4"
-              memory: 4Gi
+              memory: 6Gi
               ephemeral-storage: 8Gi
 
 # --- NetworkPolicy: Bot can only reach proxy + memory-server ---
