@@ -1,3 +1,3 @@
 [submodule "dev-bot"]
 	path = dev-bot
-	url = https://github.com/RedHatInsights/platform-frontend-ai-dev.git
+	url = https://github.com/OpenShift-Fleet/rehor.git
