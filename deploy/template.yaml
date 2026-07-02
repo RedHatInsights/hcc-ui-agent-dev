@@ -7,7 +7,7 @@ parameters:
   value: ${NAMESPACE}
 - name: BOT_IMAGE
   value: quay.io/redhat-services-prod/rh-platform-experien-tenant/hcc-ui-agent-dev
-- name: BOT_IMAGE_TAG
+- name: IMAGE_TAG
   required: true
 - name: BOT_LABEL
   value: hcc-ai-bot
@@ -75,7 +75,7 @@ objects:
       spec:
         containers:
         - name: bot
-          image: ${BOT_IMAGE}:${BOT_IMAGE_TAG}
+          image: ${BOT_IMAGE}:${IMAGE_TAG}
           securityContext:
             runAsNonRoot: true
             allowPrivilegeEscalation: false
