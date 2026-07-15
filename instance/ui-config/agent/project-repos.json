@@ -1,15 +1,18 @@
 {
   "access-requests-frontend": {
     "url": "https://github.com/platex-rehor-bot/access-requests-frontend.git",
-    "upstream": "https://github.com/RedHatInsights/access-requests-frontend.git"
+    "upstream": "https://github.com/RedHatInsights/access-requests-frontend.git",
+    "tier": "T3"
   },
   "api-documentation-frontend": {
     "url": "https://github.com/platex-rehor-bot/api-documentation-frontend.git",
-    "upstream": "https://github.com/RedHatInsights/api-documentation-frontend.git"
+    "upstream": "https://github.com/RedHatInsights/api-documentation-frontend.git",
+    "tier": "T3"
   },
   "api-frontend": {
     "url": "https://github.com/platex-rehor-bot/api-frontend.git",
-    "upstream": "https://github.com/RedHatInsights/api-frontend.git"
+    "upstream": "https://github.com/RedHatInsights/api-frontend.git",
+    "tier": "T3"
   },
   "app-interface": {
     "url": "https://gitlab.cee.redhat.com/platform-experience-services-bot/app-interface.git",
@@ -30,7 +33,8 @@
   },
   "frontend-assets": {
     "url": "https://github.com/platex-rehor-bot/frontend-assets.git",
-    "upstream": "https://github.com/RedHatInsights/frontend-assets.git"
+    "upstream": "https://github.com/RedHatInsights/frontend-assets.git",
+    "tier": "T3"
   },
   "frontend-components": {
     "url": "https://github.com/platex-rehor-bot/frontend-components.git",
@@ -42,7 +46,8 @@
   },
   "frontend-starter-app": {
     "url": "https://github.com/platex-rehor-bot/frontend-starter-app.git",
-    "upstream": "https://github.com/RedHatInsights/frontend-starter-app.git"
+    "upstream": "https://github.com/RedHatInsights/frontend-starter-app.git",
+    "tier": "T2"
   },
   "frontend-test-utils": {
     "url": "https://github.com/platex-rehor-bot/frontend-test-utils.git",
@@ -50,11 +55,13 @@
   },
   "hcc-storybook-hub": {
     "url": "https://github.com/platex-rehor-bot/hcc-storybook-hub.git",
-    "upstream": "https://github.com/RedHatInsights/hcc-storybook-hub.git"
+    "upstream": "https://github.com/RedHatInsights/hcc-storybook-hub.git",
+    "tier": "T2"
   },
   "hcc-ui-agent-dev": {
     "url": "https://github.com/platex-rehor-bot/hcc-ui-agent-dev.git",
-    "upstream": "https://github.com/RedHatInsights/hcc-ui-agent-dev.git"
+    "upstream": "https://github.com/RedHatInsights/hcc-ui-agent-dev.git",
+    "tier": "T2"
   },
   "insights-chrome": {
     "url": "https://github.com/platex-rehor-bot/insights-chrome.git",
@@ -66,7 +73,8 @@
   },
   "insights-rbac-ui": {
     "url": "https://github.com/platex-rehor-bot/insights-rbac-ui.git",
-    "upstream": "https://github.com/RedHatInsights/insights-rbac-ui.git"
+    "upstream": "https://github.com/RedHatInsights/insights-rbac-ui.git",
+    "tier": "T1"
   },
   "javascript-clients": {
     "url": "https://github.com/platex-rehor-bot/javascript-clients.git",
@@ -78,7 +86,8 @@
   },
   "landing-page-frontend": {
     "url": "https://github.com/platex-rehor-bot/landing-page-frontend.git",
-    "upstream": "https://github.com/RedHatInsights/landing-page-frontend.git"
+    "upstream": "https://github.com/RedHatInsights/landing-page-frontend.git",
+    "tier": "T3"
   },
   "learning-resources": {
     "url": "https://github.com/platex-rehor-bot/learning-resources.git",
@@ -86,11 +95,13 @@
   },
   "notifications-frontend": {
     "url": "https://github.com/platex-rehor-bot/notifications-frontend.git",
-    "upstream": "https://github.com/RedHatInsights/notifications-frontend.git"
+    "upstream": "https://github.com/RedHatInsights/notifications-frontend.git",
+    "tier": "T2"
   },
   "payload-tracker-frontend": {
     "url": "https://github.com/platex-rehor-bot/payload-tracker-frontend.git",
-    "upstream": "https://github.com/RedHatInsights/payload-tracker-frontend.git"
+    "upstream": "https://github.com/RedHatInsights/payload-tracker-frontend.git",
+    "tier": "T3"
   },
   "platform-frontend-ai-dev": {
     "url": "https://github.com/platex-rehor-bot/platform-frontend-ai-dev.git",
@@ -106,7 +117,8 @@
   },
   "service-accounts": {
     "url": "https://github.com/platex-rehor-bot/service-accounts.git",
-    "upstream": "https://github.com/RedHatInsights/service-accounts.git"
+    "upstream": "https://github.com/RedHatInsights/service-accounts.git",
+    "tier": "T2"
   },
   "shared-workflows": {
     "url": "https://github.com/platex-rehor-bot/shared-workflows.git",
@@ -114,7 +126,8 @@
   },
   "sources-ui": {
     "url": "https://github.com/platex-rehor-bot/sources-ui.git",
-    "upstream": "https://github.com/RedHatInsights/sources-ui.git"
+    "upstream": "https://github.com/RedHatInsights/sources-ui.git",
+    "tier": "T2"
   },
   "subscriptions-dashboard-ui": {
     "url": "https://github.com/platex-rehor-bot/subscriptions-dashboard-ui.git",
@@ -122,10 +135,12 @@
   },
   "user-preferences-frontend": {
     "url": "https://github.com/platex-rehor-bot/user-preferences-frontend.git",
-    "upstream": "https://github.com/RedHatInsights/user-preferences-frontend.git"
+    "upstream": "https://github.com/RedHatInsights/user-preferences-frontend.git",
+    "tier": "T2"
   },
   "widget-layout": {
     "url": "https://github.com/platex-rehor-bot/widget-layout.git",
-    "upstream": "https://github.com/RedHatInsights/widget-layout.git"
+    "upstream": "https://github.com/RedHatInsights/widget-layout.git",
+    "tier": "T2"
   }
 }
