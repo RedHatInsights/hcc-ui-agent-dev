@@ -63,6 +63,7 @@ If the repo isn't in the list above, the bot can't work on it. Let the user know
 
 The bot-eligible label `hcc-ui-ai` is applied automatically. Just determine:
 
+- Is this **testing or test infrastructure** work? If so, prefix the title with `[QE]`.
 - `needs-investigation` — (optional) the bot should analyze and report findings, not implement. Use this when the problem is unclear, spans many repos, or needs a human decision before coding.
 
 ### 4. Is the description detailed enough?
@@ -101,7 +102,7 @@ Once you have all the information, produce:
 ### Suggested ticket
 
 ```
-Title: <short, specific — under 50 chars if possible>
+Title: <short, specific — under 50 chars if possible; prefix with [QE] if testing-related>
 
 Description:
 <Clear description of the problem/request>
