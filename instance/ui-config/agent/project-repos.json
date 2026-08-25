@@ -100,6 +100,10 @@
     "url": "https://github.com/platex-rehor-bot/platform-frontend-ai-toolkit.git",
     "upstream": "https://github.com/RedHatInsights/platform-frontend-ai-toolkit.git"
   },
+  "platform-settings-ui": {
+    "url": "https://github.com/platex-rehor-bot/platform-settings-ui.git",
+    "upstream": "https://github.com/RedHatInsights/platform-settings-ui.git"
+  },
   "scheduler-ui": {
     "url": "https://github.com/platex-rehor-bot/scheduler-ui.git",
     "upstream": "https://github.com/RedHatInsights/scheduler-ui.git"
