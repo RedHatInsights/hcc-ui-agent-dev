@@ -14,6 +14,47 @@ Frontend app in Red Hat Hybrid Cloud Console ecosystem.
 - **npm scripts only** — `npm test`, `npm run lint`, `npm run build`. Never `npx jest`/`npx eslint`/`npx tsc`/`tsx` directly. Check `package.json` for scripts.
 - **NEVER run npm commands in parallel** — `npm test`, `npm run lint`, `npm run build`, `npx tsc` are memory-heavy. Always run them sequentially (one finishes before the next starts). Parallel execution causes OOMKill in the container.
 
+### Engineering Standards (experience-ui-governance)
+
+#### Architecture
+- **Feature islands** — each feature owns its routes, components, data hooks, and mocks under `src/features/<name>/`. Cross-feature imports go through `src/shared/`, never feature-to-feature.
+- **ServiceContext DI** — use `useAppServices()` for all platform dependencies. Never import `useChrome()` directly.
+- **Feature detection** — no raw `useFlag`/`useFlags`/`useFlagsStatus`. Create semantic hooks in `src/capabilities/` (e.g. `useFedRAMPMode`). Only `src/capabilities/` may import from `@unleash/proxy-client-react`.
+- **Navigation** — use `AppLink` not `Link`, `useAppNavigate` not `useNavigate`. Direct react-router-dom navigation bypasses Chrome basename handling.
+
+#### Import Paths
+- **PatternFly** — always use dynamic sub-paths, never global imports:
+  - `@patternfly/react-core/dist/dynamic/components/Alert` not `@patternfly/react-core`
+  - `@patternfly/react-table/dist/dynamic/components/Table` not `@patternfly/react-table`
+  - `@patternfly/react-icons/dist/js/icons/check-icon` not `@patternfly/react-icons`
+  - `@patternfly/react-component-groups/dist/dynamic/PageHeader` not `@patternfly/react-component-groups`
+
+#### Data Layer
+- **TanStack Query** for all server state. No `useEffect` + `useState` for API calls. No Redux for server state.
+- **Query key factories** — hierarchical pattern per domain (e.g. `rolesKeys.all`, `rolesKeys.list(params)`, `rolesKeys.detail(id)`). No inline query keys. Use `as const`.
+- **API client isolation** — only `data/api/` files import from `@redhat-cloud-services/*-client`. Everyone else uses data layer re-exports.
+- **DI contract** — data hooks in `data/queries/` get ALL dependencies from `useAppServices()`. Never import platform hooks, feature flag hooks, or notification packages in data layer files.
+
+#### Tables
+- Use `TableView` from `@redhat-cloud-services/frontend-components`. Not raw PatternFly Table, not `@patternfly/react-data-view`.
+- Always pair `TableView` with `useTableState` for pagination, filtering, sorting, selection.
+
+#### Testing
+- **Storybook is the first-class React test artifact.** Each component gets `.stories.tsx` with interaction tests (play functions) and MSW handlers.
+- **Jest snapshots are banned.** Write behavioral assertions or Storybook interaction tests.
+- **Jest** for non-React code only (utilities, pure logic, data transformations).
+- **MSW at the network boundary** — no mocking React components or hooks. Use handler factories from `data/mocks/`, never inline `http.get`/`http.post` in stories.
+- **Handler factory pattern**: `rolesHandlers()` (defaults), `rolesHandlers(customData, { onList: spy })` (custom), `groupsHandlers([])` (empty), `groupsErrorHandlers(500)` (error).
+- **Seed data** — use constants, not inline strings. Play functions reference seed constants.
+- **Storybook imports**: `from 'storybook/test'` (no `@` prefix).
+- **Play function rules**: use `step('Label', async () => { ... })` for each phase; use `within()` + role/text queries not `canvasElement.querySelector`; no `getBy*` inside `waitFor` (use `queryBy*` + `expect` or `findBy*`); use `clearAndType` helper not `user.type()` directly.
+- **Stateful stories** for CRUD: use `createResettableCollection` + handler creators with reset in decorator.
+
+#### Code Style
+- Named exports for components. Features may additionally default export, never default-only.
+- File naming: PascalCase for components, camelCase with `use` prefix for hooks, `ComponentName.stories.tsx`, `component-name.test.tsx`.
+- `no-console` — only `console.error` allowed.
+
 ### Verification — MANDATORY for UI changes
 
 **MUST visually verify every UI change before PR.** Ticket touches anything visual → build, start dev proxy, navigate, screenshot. No exceptions.
