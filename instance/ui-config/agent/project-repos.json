@@ -28,6 +28,14 @@
     "url": "https://github.com/platex-rehor-bot/cypress-e2e-image.git",
     "upstream": "https://github.com/RedHatInsights/cypress-e2e-image.git"
   },
+  "experience-ui-governance": {
+    "url": "https://github.com/platex-rehor-bot/experience-ui-governance.git",
+    "upstream": "https://github.com/RedHatInsights/experience-ui-governance.git"
+  },
+  "experience-ui-starter-app": {
+    "url": "https://github.com/platex-rehor-bot/experience-ui-starter-app.git",
+    "upstream": "https://github.com/RedHatInsights/experience-ui-starter-app.git"
+  },
   "frontend-assets": {
     "url": "https://github.com/platex-rehor-bot/frontend-assets.git",
     "upstream": "https://github.com/RedHatInsights/frontend-assets.git"
