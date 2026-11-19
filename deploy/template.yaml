@@ -33,8 +33,6 @@ parameters:
   required: true
 - name: VERTEX_ALLOWED_MODELS
   required: true
-- name: SLACK_WEBHOOK_URL
-  value: ""
 objects:
 
 # ============================================================================
@@ -153,7 +151,11 @@ objects:
             value: http://devbot-memory-server:8080/api/costs
           # Slack notifications
           - name: SLACK_WEBHOOK_URL
-            value: ${SLACK_WEBHOOK_URL}
+            valueFrom:
+              secretKeyRef:
+                name: devbot-secrets
+                key: slack-webhook
+                optional: true
           # Proxy — shared pod deployed by platform-frontend-ai-dev
           - name: PROXY_HOST
             value: devbot-proxy
